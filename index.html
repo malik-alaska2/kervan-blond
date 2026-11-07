@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Kervan — Nasıl Çalışıyoruz</title>
+<meta name="viewport" content="width=1536">
+<script>/* phones get a real mobile viewport; tablets/desktops keep the 1536px artboard */ if (Math.min(screen.width, screen.height) < 600 && screen.width < 760) document.querySelector('meta[name="viewport"]').setAttribute("content", "width=device-width, initial-scale=1");</script>
+<meta name="description" content="Talebinizi iletin, en iyi teklifi sunalım, onaylayın, siparişiniz başlasın. Basit, şeffaf ve güvenli.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kervan — Nasıl Çalışıyoruz?">
+<meta property="og:description" content="Basit, şeffaf ve güvenli: 4 adımda talepten zamanında teslimata.">
+<meta property="og:image" content="https://malik-alaska2.github.io/kervan-blond/og.png">
+<meta property="og:url" content="https://malik-alaska2.github.io/kervan-blond/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="alternate" hreflang="tr" href="https://malik-alaska2.github.io/kervan-blond/">
+<link rel="alternate" hreflang="en" href="https://malik-alaska2.github.io/kervan-blond/en/">
+<meta name="twitter:card" content="summary_large_image">
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,700&amp;family=Roboto+Condensed:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#ffffff}
+.root{margin-left:auto;margin-right:auto}
+a{color:#14306b}a:hover{color:#0c1f47}
+.step,.pill{-webkit-tap-highlight-color:transparent;cursor:pointer;outline:none;transition:transform .28s ease,box-shadow .28s ease}
+.step{position:relative;overflow:hidden}
+.step::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.75) 50%,rgba(255,255,255,0) 100%);transform:skewX(-18deg);pointer-events:none;opacity:0}
+.step:hover::after,.step:focus::after{animation:kv-shine .9s ease forwards}
+.root:has(.p1:hover) .s1::after,.root:has(.p1:focus) .s1::after,.root:has(.p2:hover) .s2::after,.root:has(.p2:focus) .s2::after,.root:has(.p3:hover) .s3::after,.root:has(.p3:focus) .s3::after,.root:has(.p4:hover) .s4::after,.root:has(.p4:focus) .s4::after{animation:kv-shine .9s ease forwards}
+@keyframes kv-shine{0%{left:-70%;opacity:1}100%{left:135%;opacity:1}}
+.step:hover,.step:focus,.root:has(.p1:hover) .s1,.root:has(.p1:focus) .s1,.root:has(.p2:hover) .s2,.root:has(.p2:focus) .s2,.root:has(.p3:hover) .s3,.root:has(.p3:focus) .s3,.root:has(.p4:hover) .s4,.root:has(.p4:focus) .s4{transform:translateY(-8px);box-shadow:0 0 0 3px var(--glow),0 22px 44px -12px var(--glow)}
+.step h2{text-wrap:balance}.step p{text-wrap:pretty}
+.step .ico{transition:transform .3s ease}
+.step:hover .ico,.step:focus .ico{transform:scale(1.08)}
+.step .num{transition:box-shadow .3s ease}
+.step:hover .num,.step:focus .num{box-shadow:0 0 0 9px var(--ring)}
+.pill:hover,.pill:focus,.root:has(.s1:hover) .p1,.root:has(.s1:focus) .p1,.root:has(.s2:hover) .p2,.root:has(.s2:focus) .p2,.root:has(.s3:hover) .p3,.root:has(.s3:focus) .p3,.root:has(.s4:hover) .p4,.root:has(.s4:focus) .p4{transform:translateY(-3px);box-shadow:0 0 0 3px var(--glow),0 12px 26px -10px var(--glow)}
+.trust{border-radius:8px;padding:4px 8px;margin:-4px -8px;transition:background .2s ease}
+.trust:hover{background:#e2e7f0}
+.lang a:hover{background:#e2e7f0;color:#14306b}
+@media (prefers-reduced-motion: reduce){.step,.pill,.step .ico,.step .num{transition:none}.step::after{display:none}}
+/* Liquid glass lens over the process row */
+.pills{position:relative;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+html[data-lens-ready] .pills .pill,html[data-lens-ready] .pills .pill:hover,html[data-lens-ready] .pills .pill:focus{transform:none!important;box-shadow:none!important}
+html[data-lens-ready] .pills .pill:focus-visible{outline:2px solid #14306b;outline-offset:4px}
+html[data-lens="1"] .root .s1,html[data-lens="2"] .root .s2,html[data-lens="3"] .root .s3,html[data-lens="4"] .root .s4{transform:translateY(-8px);box-shadow:0 0 0 3px var(--glow),0 22px 44px -12px var(--glow)}
+html[data-lens="1"] .root .s1 .num,html[data-lens="2"] .root .s2 .num,html[data-lens="3"] .root .s3 .num,html[data-lens="4"] .root .s4 .num{box-shadow:0 0 0 9px var(--ring)}
+.lens{position:absolute;left:0;top:0;width:0;height:0;border-radius:999px;pointer-events:none;z-index:2;opacity:0;will-change:transform,opacity}
+.lens-body{position:absolute;inset:0;border-radius:inherit;overflow:hidden;background:#fff;isolation:isolate}
+.lens-mag{position:absolute;left:0;top:0;pointer-events:none}
+.lens-mag .pill{transition:none}
+.lens-edge{position:absolute;inset:0;border-radius:inherit;-webkit-backdrop-filter:blur(2.5px) saturate(1.5);backdrop-filter:blur(2.5px) saturate(1.5);-webkit-mask:linear-gradient(90deg,#000,transparent 22px,transparent calc(100% - 22px),#000),linear-gradient(180deg,#000,transparent 9px,transparent calc(100% - 9px),#000);mask:linear-gradient(90deg,#000,transparent 22px,transparent calc(100% - 22px),#000),linear-gradient(180deg,#000,transparent 9px,transparent calc(100% - 9px),#000)}
+.lens-rim{position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.85),inset 0 2px 2px rgba(255,255,255,.95),inset 0 -3px 6px rgba(20,48,107,.10),inset 0 0 18px rgba(255,255,255,.55)}
+.lens-rim::after{content:"";position:absolute;left:12%;right:12%;top:3px;height:38%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,0));opacity:calc(.25 + var(--lift,0) * .5)}
+.lens-shadow{position:absolute;inset:0;border-radius:inherit;box-shadow:0 1px 2px rgba(20,48,107,.08),0 14px 32px -12px rgba(20,48,107,calc(.12 + var(--lift,0) * .3))}
+/* Phone layout: the 1536px artboard reflows into a single readable column */
+@media (max-width: 760px){
+.root{width:auto!important;height:auto!important;padding:20px 16px 28px!important;gap:22px!important}
+.root>header{flex-direction:column!important;gap:14px!important}
+.root h1{font-size:30px!important;line-height:1.12!important}
+.root>header p{font-size:15px!important;line-height:1.35}
+.root>header>div:last-child{width:100%;box-sizing:border-box;padding:12px 14px!important;column-gap:12px!important;row-gap:8px!important}
+.trust{font-size:14px!important;gap:8px!important}
+.trust svg{width:16px;height:16px}
+section:has(>.step){flex-direction:column!important;flex:none!important;gap:12px}
+section:has(>.step)>div{display:none!important}
+.step{flex:none!important;display:grid!important;grid-template-columns:60px minmax(0,1fr);column-gap:14px!important;row-gap:6px!important;align-items:center!important;padding:16px!important}
+.step .num{width:40px!important;height:40px!important;font-size:20px!important;justify-self:center}
+.step h2{font-size:20px!important;min-height:0!important;text-align:left!important}
+.step .ico{width:60px;height:60px;justify-self:center}
+.step>p{font-size:15px!important;text-align:left!important;line-height:1.35!important}
+.step>div:last-child{grid-column:1/-1;margin-top:8px!important;padding:10px 14px!important;display:grid!important;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;grid-auto-flow:column;column-gap:12px;row-gap:2px!important}
+.step>div:last-child>div{margin-top:0!important}
+.step>div:last-child>div:nth-child(odd){font-size:13px!important}
+.step>div:last-child>div:nth-child(even){font-size:15px!important}
+.step:hover,.step:focus{transform:translateY(-3px)}
+section:has(.pills) h3{font-size:20px!important}
+.pills,.pills-copy{gap:6px!important;align-items:stretch!important}
+.pills>svg,.pills-copy>svg{display:none!important}
+.pill{flex-direction:column!important;gap:6px!important;padding:10px 4px!important}
+.pill>span{font-size:12.5px!important;text-align:center;line-height:1.2}
+.pill>div{width:28px!important;height:28px!important;font-size:15px!important}
+footer{flex-direction:column!important;gap:14px!important;text-align:center}
+footer>div:first-child{font-size:15px!important}
+footer>div:last-child{font-size:19px!important}
+}
+</style>
+</helmet>
+<div class="root" style="width: 1536px; height: 1024px; box-sizing: border-box; padding: 36px 40px 28px; background: #ffffff; font-family: 'Roboto Condensed', 'Arial Narrow', system-ui, sans-serif; color: #1b2a4a; display: flex; flex-direction: column; gap: 26px">
+
+  <!-- HEADER -->
+  <header style="display: flex; justify-content: space-between; align-items: flex-start; gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <h1 style="margin: 0; font-family: 'Merriweather', Georgia, serif; font-weight: 900; font-size: 58px; line-height: 1.05; color: #14306b; letter-spacing: -0.5px">Kervan — Nasıl Çalışıyoruz?</h1>
+      <p style="margin: 0; font-family: 'Merriweather', Georgia, serif; font-weight: 400; font-size: 26px; color: #3a4a6b">(Basit, Şeffaf ve Güvenli · Güvenilir İş Ortağınız)</p>
+    </div>
+    <div style="background: #f1f3f7; border-radius: 10px; padding: 18px 26px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; row-gap: 10px; flex: none">
+      <div class="trust" style="display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 500">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14306b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg>
+        <span>Güvenli İşlemler</span>
+      </div>
+      <div class="trust" style="display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 500">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14306b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0116 0v2"></path><rect x="3" y="14" width="4" height="6" rx="1.5"></rect><rect x="17" y="14" width="4" height="6" rx="1.5"></rect></svg>
+        <span>Profesyonel Destek</span>
+      </div>
+      <div class="trust" style="display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 500">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14306b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"></path></svg>
+        <span>Şeffaf Süreç</span>
+      </div>
+      <div class="trust" style="display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 500">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14306b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12l3 3 5-6"></path></svg>
+        <span>Güvenilir Ortaklık</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- STEPS -->
+  <section style="display: flex; align-items: stretch; flex: 1 1 auto; min-height: 0">
+
+    <!-- STEP 1 -->
+    <article class="step s1" tabindex="0" style="--glow: rgba(31,95,168,.45); --ring: rgba(31,95,168,.18); flex: 1 1 0; min-width: 0; background: #e8f1fb; border-radius: 14px; padding: 26px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 16px">
+      <div class="num" style="width: 54px; height: 54px; border-radius: 50%; background: #1f5fa8; color: #ffffff; font-size: 28px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</div>
+      <h2 style="margin: 0; font-size: 30px; line-height: 1.15; font-weight: 700; text-align: center; color: #14306b; min-height: 70px; display: flex; align-items: center">Talebinizi İletin</h2>
+      <svg class="ico" width="124" height="124" viewBox="0 0 124 124" fill="none" stroke="#1f5fa8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Talep formu gönderiliyor"><circle cx="62" cy="62" r="58" fill="#ffffff" stroke="none"></circle><rect x="24" y="26" width="54" height="72" rx="8" fill="#cfe0f3"></rect><rect x="40" y="18" width="22" height="14" rx="4" fill="#ffffff"></rect><path d="M35 48h26M35 60h30M35 72h18"></path><path d="M106 34L62 52l18 8 8 20z" fill="#ffffff"></path><path d="M80 60l26-26"></path></svg>
+      <p style="margin: 0; font-size: 21px; line-height: 1.4; text-align: center; color: #1b2a4a">İhtiyacınız olan ürün veya hizmeti bize bildirin.</p>
+      <div style="margin-top: auto; width: 100%; box-sizing: border-box; background: #ffffff; border-radius: 10px; padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; border: 1px solid #cfe0f3">
+        <div style="font-size: 17px; font-weight: 700; color: #1f5fa8">Yürüten</div>
+        <div style="font-size: 19px; font-weight: 500">Firmanız</div>
+        <div style="font-size: 17px; font-weight: 700; color: #1f5fa8; margin-top: 4px">Sonuç</div>
+        <div style="font-size: 19px; font-weight: 500">Talebiniz Kervan’a ulaşır</div>
+      </div>
+    </article>
+
+    <div style="flex: none; width: 40px; display: flex; justify-content: center; padding-top: 250px" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#1b2a4a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14h17M16 8l6 6-6 6"></path></svg>
+    </div>
+
+    <!-- STEP 2 -->
+    <article class="step s2" tabindex="0" style="--glow: rgba(46,125,79,.45); --ring: rgba(46,125,79,.18); flex: 1 1 0; min-width: 0; background: #e9f5ec; border-radius: 14px; padding: 26px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 16px">
+      <div class="num" style="width: 54px; height: 54px; border-radius: 50%; background: #2e7d4f; color: #ffffff; font-size: 28px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</div>
+      <h2 style="margin: 0; font-size: 30px; line-height: 1.15; font-weight: 700; text-align: center; color: #14306b; min-height: 70px; display: flex; align-items: center">Size En İyi Teklifi Sunalım</h2>
+      <svg class="ico" width="124" height="124" viewBox="0 0 124 124" fill="none" stroke="#2e7d4f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="En iyi teklif seçimi"><circle cx="62" cy="62" r="58" fill="#ffffff" stroke="none"></circle><g transform="rotate(-10 41 62)"><rect x="18" y="32" width="46" height="60" rx="7" fill="#ffffff"></rect><path d="M28 48h20M28 58h14"></path></g><rect x="44" y="22" width="56" height="74" rx="8" fill="#ffffff"></rect><rect x="50" y="47" width="44" height="18" rx="5" fill="#cde6d5" stroke="none"></rect><path d="M55 36h26M55 56h16M55 78h26M55 87h14"></path><path d="M79 56l4 4 7-8"></path><circle cx="98" cy="24" r="13" fill="#2e7d4f" stroke="#ffffff" stroke-width="3"></circle><path d="M98 17l1.8 4.6 4.9.2-3.8 3.1 1.3 4.8-4.2-2.7-4.2 2.7 1.3-4.8-3.8-3.1 4.9-.2z" fill="#ffffff" stroke="none"></path><circle cx="38" cy="86" r="13" fill="#e9f5ec"></circle><path d="M28.5 95.5L18 106" stroke-width="6"></path></svg>
+      <p style="margin: 0; font-size: 21px; line-height: 1.4; text-align: center; color: #1b2a4a">Güvenilir tedarikçilerden size en uygun teklifi hazırlayalım.</p>
+      <div style="margin-top: auto; width: 100%; box-sizing: border-box; background: #ffffff; border-radius: 10px; padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; border: 1px solid #cde6d5">
+        <div style="font-size: 17px; font-weight: 700; color: #2e7d4f">Yürüten</div>
+        <div style="font-size: 19px; font-weight: 500">Kervan ekibi</div>
+        <div style="font-size: 17px; font-weight: 700; color: #2e7d4f; margin-top: 4px">Sonuç</div>
+        <div style="font-size: 19px; font-weight: 500">Size en uygun teklif</div>
+      </div>
+    </article>
+
+    <div style="flex: none; width: 40px; display: flex; justify-content: center; padding-top: 250px" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#1b2a4a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14h17M16 8l6 6-6 6"></path></svg>
+    </div>
+
+    <!-- STEP 3 -->
+    <article class="step s3" tabindex="0" style="--glow: rgba(196,122,18,.45); --ring: rgba(196,122,18,.18); flex: 1 1 0; min-width: 0; background: #fdf4e3; border-radius: 14px; padding: 26px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 16px">
+      <div class="num" style="width: 54px; height: 54px; border-radius: 50%; background: #c47a12; color: #ffffff; font-size: 28px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</div>
+      <h2 style="margin: 0; font-size: 30px; line-height: 1.15; font-weight: 700; text-align: center; color: #14306b; min-height: 70px; display: flex; align-items: center">Teklifi Onaylayın</h2>
+      <svg class="ico" width="124" height="124" viewBox="0 0 124 124" fill="none" stroke="#c47a12" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Onaylı ve imzalı sözleşme"><circle cx="62" cy="62" r="58" fill="#ffffff" stroke="none"></circle><rect x="22" y="16" width="58" height="84" rx="8" fill="#ffffff" stroke="none"></rect><path d="M22 34V24a8 8 0 0 1 8-8h42a8 8 0 0 1 8 8v10z" fill="#f6dfb4" stroke="none"></path><rect x="22" y="16" width="58" height="84" rx="8"></rect><path d="M32 46h38M32 56h38M32 66h24"></path><path d="M32 84c4-8 8 4 12-2s7 5 11 0" stroke-width="3"></path><path d="M31 91h28" stroke-width="3"></path><path d="M100 36l8 8-30 30-11 3 3-11z" fill="#f6dfb4"></path><path d="M94 42l8 8"></path><circle cx="88" cy="92" r="17" fill="#c47a12" stroke="#ffffff" stroke-width="4"></circle><path d="M80 92l6 6 10-11" stroke="#ffffff"></path></svg>
+      <p style="margin: 0; font-size: 21px; line-height: 1.4; text-align: center; color: #1b2a4a">Teklifimizi onaylayın, sözleşmeyi birlikte imzalayalım.</p>
+      <div style="margin-top: auto; width: 100%; box-sizing: border-box; background: #ffffff; border-radius: 10px; padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; border: 1px solid #f1dcb3">
+        <div style="font-size: 17px; font-weight: 700; color: #a8650c">Yürüten</div>
+        <div style="font-size: 19px; font-weight: 500">Firmanız ve Kervan</div>
+        <div style="font-size: 17px; font-weight: 700; color: #a8650c; margin-top: 4px">Sonuç</div>
+        <div style="font-size: 19px; font-weight: 500">İmzalı sözleşme</div>
+      </div>
+    </article>
+
+    <div style="flex: none; width: 40px; display: flex; justify-content: center; padding-top: 250px" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#1b2a4a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14h17M16 8l6 6-6 6"></path></svg>
+    </div>
+
+    <!-- STEP 4 -->
+    <article class="step s4" tabindex="0" style="--glow: rgba(90,79,168,.45); --ring: rgba(90,79,168,.18); flex: 1 1 0; min-width: 0; background: #efeefa; border-radius: 14px; padding: 26px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 16px">
+      <div class="num" style="width: 54px; height: 54px; border-radius: 50%; background: #5a4fa8; color: #ffffff; font-size: 28px; font-weight: 700; display: flex; align-items: center; justify-content: center">4</div>
+      <h2 style="margin: 0; font-size: 30px; line-height: 1.15; font-weight: 700; text-align: center; color: #14306b; min-height: 70px; display: flex; align-items: center">Siparişiniz Başlasın</h2>
+      <svg class="ico" width="124" height="124" viewBox="0 0 124 124" fill="none" stroke="#5a4fa8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Konteyner gemisi ve teslimat rotası"><circle cx="62" cy="62" r="58" fill="#ffffff" stroke="none"></circle><circle cx="20" cy="52" r="3.5" fill="#5a4fa8" stroke="none"></circle><path d="M20 52C30 34 56 30 78 38" stroke-width="3" stroke-dasharray="1 7"></path><path d="M94 50c-9-9-13-15-13-21a13 13 0 0 1 26 0c0 6-4 12-13 21z" fill="#d9d6f0"></path><circle cx="94" cy="29" r="4.5" fill="#ffffff"></circle><rect x="30" y="60" width="16" height="14" fill="#ffffff"></rect><rect x="46" y="60" width="16" height="14" fill="#d9d6f0"></rect><rect x="62" y="60" width="16" height="14" fill="#ffffff"></rect><rect x="80" y="54" width="14" height="20" rx="2" fill="#ffffff"></rect><path d="M84 61h6"></path><path d="M16 74h92l-12 20H28z" fill="#d9d6f0"></path><path d="M18 106c8-6 16-6 22 0s14 6 22 0 14-6 22 0 14 6 22 0"></path></svg>
+      <p style="margin: 0; font-size: 21px; line-height: 1.4; text-align: center; color: #1b2a4a">Tedarikçiyle iletişim kurarak siparişinizi takip edelim ve zamanında teslimat sağlayalım.</p>
+      <div style="margin-top: auto; width: 100%; box-sizing: border-box; background: #ffffff; border-radius: 10px; padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; border: 1px solid #d9d6f0">
+        <div style="font-size: 17px; font-weight: 700; color: #5a4fa8">Yürüten</div>
+        <div style="font-size: 19px; font-weight: 500">Kervan ekibi</div>
+        <div style="font-size: 17px; font-weight: 700; color: #5a4fa8; margin-top: 4px">Sonuç</div>
+        <div style="font-size: 19px; font-weight: 500">Zamanında teslimat</div>
+      </div>
+    </article>
+  </section>
+
+  <!-- PROCESS OVERVIEW -->
+  <section style="display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; align-items: center; gap: 16px">
+      <h3 style="margin: 0; font-family: 'Merriweather', Georgia, serif; font-weight: 700; font-size: 24px; color: #14306b; white-space: nowrap">Süreç Özeti</h3>
+      <div style="flex: 1 1 auto; height: 2px; background: #d5dbe6"></div>
+    </div>
+    <div class="pills" style="display: flex; align-items: center; gap: 14px">
+      <div class="lens" aria-hidden="true"><div class="lens-shadow"></div><div class="lens-body"><div class="lens-mag"></div><div class="lens-edge"></div></div><div class="lens-rim"></div></div>
+      <div class="pill p1" tabindex="0" style="--glow: rgba(31,95,168,.45); flex: 1 1 0; min-width: 0; background: #e8f1fb; border: 1px solid #cfe0f3; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; justify-content: center; gap: 12px">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #1f5fa8; color: #fff; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex: none">1</div>
+        <span style="font-size: 20px; font-weight: 600">Talep iletilir</span>
+      </div>
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="#1b2a4a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M5 14h17M16 8l6 6-6 6"></path></svg>
+      <div class="pill p2" tabindex="0" style="--glow: rgba(46,125,79,.45); flex: 1 1 0; min-width: 0; background: #e9f5ec; border: 1px solid #cde6d5; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; justify-content: center; gap: 12px">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #2e7d4f; color: #fff; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex: none">2</div>
+        <span style="font-size: 20px; font-weight: 600">Teklif hazırlanır</span>
+      </div>
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="#1b2a4a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M5 14h17M16 8l6 6-6 6"></path></svg>
+      <div class="pill p3" tabindex="0" style="--glow: rgba(196,122,18,.45); flex: 1 1 0; min-width: 0; background: #fdf4e3; border: 1px solid #f1dcb3; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; justify-content: center; gap: 12px">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #c47a12; color: #fff; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex: none">3</div>
+        <span style="font-size: 20px; font-weight: 600">Onay + Sözleşme</span>
+      </div>
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" stroke="#1b2a4a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M5 14h17M16 8l6 6-6 6"></path></svg>
+      <div class="pill p4" tabindex="0" style="--glow: rgba(90,79,168,.45); flex: 1 1 0; min-width: 0; background: #efeefa; border: 1px solid #d9d6f0; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; justify-content: center; gap: 12px">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #5a4fa8; color: #fff; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex: none">4</div>
+        <span style="font-size: 20px; font-weight: 600">Takip + Teslimat</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="display: flex; justify-content: space-between; align-items: center; gap: 24px; border-top: 1px solid #e3e7ef; padding-top: 14px">
+    <div style="font-size: 18px; color: #3a4a6b"><strong style="color: #14306b">Kervan</strong> · Güvenilir İş Ortağınız</div>
+    <nav class="lang" aria-label="Dil seçimi" style="display: flex; align-items: center; gap: 4px; padding: 4px; background: #f1f3f7; border-radius: 999px; font-size: 16px; font-weight: 600"><span aria-current="page" style="padding: 6px 14px; border-radius: 999px; background: #14306b; color: #ffffff">TR</span><a href="en/" hreflang="en" lang="en" style="padding: 6px 14px; border-radius: 999px; color: #3a4a6b; text-decoration: none">EN</a></nav>
+    <div style="font-family: 'Merriweather', Georgia, serif; font-weight: 700; font-style: italic; font-size: 22px; color: #14306b; border-bottom: 4px solid #f2b705; padding-bottom: 2px">Kervan ile işiniz daha kolay!</div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1536,"height":1024}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+<script>
+/* Liquid glass lens: slides between process pills, magnifies what is under it, stretches with speed. */
+(function () {
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var MAG = 1.1, LIFT_SCALE = 1.08, PAD_X = 12, PAD_Y = 10;
+
+  function init(row) {
+    // Skip the raw <x-dc> template and not-yet-laid-out rows: touching the template leaks a stale copy into the render.
+    if (row.__lens || row.closest('x-dc') || !row.offsetWidth) return;
+    row.__lens = true;
+    var root = row.closest(".root") || document; var flag = document.documentElement;
+    var lens = row.querySelector('.lens');
+    var mag = lens.querySelector('.lens-mag');
+    var pills = [].slice.call(row.querySelectorAll(':scope > .pill'));
+    var steps = [1, 2, 3, 4].map(function (n) { return root.querySelector('.s' + n); });
+
+    // Magnified copy of the row, rendered inside the lens.
+    mag.textContent = '';
+    var copy = document.createElement('div');
+    copy.setAttribute('style', row.getAttribute('style'));
+    copy.className = 'pills-copy';
+    copy.style.position = 'absolute';
+    [].slice.call(row.children).forEach(function (c) {
+      if (c === lens) return;
+      var k = c.cloneNode(true);
+      k.removeAttribute('tabindex');
+      k.classList.remove('p1', 'p2', 'p3', 'p4');
+      copy.appendChild(k);
+    });
+    mag.appendChild(copy);
+
+    var W, H, centers, pw, ph, minX, maxX;
+    function measure() {
+      W = row.offsetWidth; H = row.offsetHeight;
+      copy.style.width = W + 'px'; copy.style.height = H + 'px';
+      centers = pills.map(function (p) { return p.offsetLeft + p.offsetWidth / 2; });
+      pw = pills[0].offsetWidth + PAD_X * 2; ph = pills[0].offsetHeight + PAD_Y * 2;
+      lens.style.width = pw + 'px'; lens.style.height = ph + 'px';
+      minX = centers[0]; maxX = centers[centers.length - 1];
+    }
+    measure();
+
+    var active = 0;
+    var x = centers[0], vx = 0, target = x;
+    var lift = 0, vl = 0, liftTarget = 0;
+    var dragging = false, hovering = false, raf = 0, last = 0;
+
+    function nearest(px) {
+      var best = 0;
+      centers.forEach(function (c, i) { if (Math.abs(c - px) < Math.abs(centers[best] - px)) best = i; });
+      return best;
+    }
+    function localX(e) {
+      var r = row.getBoundingClientRect(), s = r.width / W || 1;
+      return Math.max(minX, Math.min(maxX, (e.clientX - r.left) / s));
+    }
+    function kick() { if (!raf) { last = performance.now(); raf = requestAnimationFrame(tick); } }
+
+    function render() {
+      var speed = reduce ? 0 : Math.min(Math.abs(vx) / 2600, 0.28);
+      var s = 1 + (LIFT_SCALE - 1) * lift;
+      var sx = s * (1 + speed), sy = s * (1 - speed * 0.55);
+      lens.style.transform = 'translate(' + (x - pw / 2) + 'px,' + (H / 2 - ph / 2) + 'px) scale(' + sx.toFixed(4) + ',' + sy.toFixed(4) + ')';
+      lens.style.setProperty('--lift', lift.toFixed(3));
+      lens.style.opacity = Math.max(0, Math.min(1, lift * 1.8)).toFixed(3); // glass only while moving between sections
+      // Copy aligned with the real row, magnified around the lens centre (undo lens scale so content stays readable).
+      var m = 1 + (MAG - 1) * lift;
+      copy.style.left = -(x - pw / 2) + 'px';
+      copy.style.top = -(H / 2 - ph / 2) + 'px';
+      copy.style.transformOrigin = x + 'px ' + (H / 2) + 'px';
+      copy.style.transform = 'scale(' + (m / sx).toFixed(4) + ',' + (m / sy).toFixed(4) + ')';
+      var on = lift > 0.15 ? nearest(x) + 1 : 0;
+      if (on) flag.setAttribute("data-lens", on); else flag.removeAttribute("data-lens");
+    }
+
+    function tick(now) {
+      var dt = Math.min((now - last) / 1000, 1 / 30); last = now;
+      if (reduce) { x = target; vx = 0; lift = liftTarget; vl = 0; }
+      else {
+        var k = dragging ? 900 : 380, d = dragging ? 48 : 26; // slight overshoot when snapping
+        vx += ((target - x) * k - vx * d) * dt; x += vx * dt;
+        vl += ((liftTarget - lift) * 260 - vl * 24) * dt; lift += vl * dt;
+      }
+      render();
+      var settled = Math.abs(target - x) < 0.3 && Math.abs(vx) < 5 && Math.abs(liftTarget - lift) < 0.004 && Math.abs(vl) < 0.02;
+      if (settled) { x = target; vx = 0; lift = liftTarget; vl = 0; render(); raf = 0; return; }
+      raf = requestAnimationFrame(tick);
+    }
+
+    function select(i) { active = i; target = centers[i]; }
+    function rest() { if (!dragging && !hovering) { target = centers[active]; liftTarget = 0; } kick(); }
+
+    row.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { hovering = true; liftTarget = 1; kick(); } });
+    row.addEventListener('pointermove', function (e) {
+      if (!dragging && !hovering) return;
+      target = localX(e); liftTarget = 1; kick();
+    });
+    row.addEventListener('pointerleave', function () { hovering = false; rest(); });
+    row.addEventListener('pointerdown', function (e) {
+      if (e.button > 0) return;
+      e.preventDefault(); // no focus ring / text selection while swiping
+      dragging = true; liftTarget = 1; target = localX(e);
+      try { row.setPointerCapture(e.pointerId); } catch (_) {}
+      kick();
+    });
+    function release(e) {
+      if (!dragging) return;
+      dragging = false;
+      select(nearest(localX(e)));
+      if (!hovering) liftTarget = 0;
+      kick();
+    }
+    row.addEventListener('pointerup', release);
+    row.addEventListener('pointercancel', release);
+    row.addEventListener('lostpointercapture', function (e) { if (dragging) release(e); });
+
+    pills.forEach(function (p, i) {
+      p.addEventListener('focus', function () { if (dragging) return; select(i); liftTarget = 1; kick(); setTimeout(function () { if (!dragging && !hovering) { liftTarget = 0; kick(); } }, 450); });
+      p.addEventListener('keydown', function (e) {
+        var j = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : -1;
+        if (j >= 0 && j < pills.length) { e.preventDefault(); pills[j].focus(); }
+      });
+    });
+    // Hovering a step card sends the lens to its pill.
+    steps.forEach(function (s, i) {
+      if (!s) return;
+      s.addEventListener('pointerenter', function () { if (dragging) return; target = centers[i]; liftTarget = 1; kick(); });
+      s.addEventListener('pointerleave', function () { rest(); });
+      s.addEventListener('click', function () { select(i); rest(); });
+    });
+
+    if (window.ResizeObserver) new ResizeObserver(function () { var a = nearest(x); measure(); x = target = centers[dragging ? a : active]; render(); }).observe(row);
+    render();
+    document.documentElement.setAttribute("data-lens-ready", "");
+  }
+
+  function scan() { [].forEach.call(document.querySelectorAll('.pills'), function (r) { if (r.querySelector('.lens')) init(r); }); }
+  new MutationObserver(scan).observe(document.documentElement, { childList: true, subtree: true });
+  scan();
+})();
+</script>
+</body>
+</html>
